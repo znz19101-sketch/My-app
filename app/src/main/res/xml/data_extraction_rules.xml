@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <data-extraction-rules>
     <cloud-backup>
@@ -11,6 +10,7 @@
     <device-transfer>
         <exclude domain="file" path="security_evidence/" />
         <exclude domain="file" path="reports/" />
+        <exclude domain="database" path="guardexa.db" />
         <exclude domain="sharedpref" path="security.xml" />
     </device-transfer>
 </data-extraction-rules>

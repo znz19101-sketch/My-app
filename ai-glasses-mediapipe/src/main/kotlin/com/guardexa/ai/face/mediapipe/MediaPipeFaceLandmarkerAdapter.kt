@@ -5,7 +5,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.google.mediapipe.framework.image.BitmapImageBuilder
 import com.google.mediapipe.tasks.core.BaseOptions
-import com.google.mediapipe.tasks.vision.facelandmarker.FaceLandmarker
+import com.google.mediapipe.tasks.vision.facelandmarker.FaceLandmarker as MediaPipeFaceLandmarker
 import com.google.mediapipe.tasks.vision.facelandmarker.FaceLandmarkerResult
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.guardexa.ai.face.FaceLandmarkResult
@@ -23,14 +23,14 @@ class MediaPipeFaceLandmarkerAdapter(
     minimumTrackingConfidence: Float = 0.60f
 ) : FaceLandmarker {
 
-    private val landmarker: FaceLandmarker
+    private val landmarker: MediaPipeFaceLandmarker
 
     init {
         val baseOptions = BaseOptions.builder()
             .setModelAssetPath(modelAssetPath)
             .build()
 
-        val options = FaceLandmarker.FaceLandmarkerOptions.builder()
+        val options = MediaPipeFaceLandmarker.FaceLandmarkerOptions.builder()
             .setBaseOptions(baseOptions)
             .setRunningMode(RunningMode.IMAGE)
             .setNumFaces(2)
@@ -41,7 +41,7 @@ class MediaPipeFaceLandmarkerAdapter(
             .setOutputFacialTransformationMatrixes(true)
             .build()
 
-        landmarker = FaceLandmarker.createFromOptions(context, options)
+        landmarker = MediaPipeFaceLandmarker.createFromOptions(context, options)
     }
 
     override suspend fun analyze(bitmap: Bitmap): FaceLandmarkResult =
