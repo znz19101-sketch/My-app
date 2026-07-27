@@ -1,0 +1,7 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Guardexa</string>
+    <string name="protection_active">Protection active</string>
+    <string name="protection_started">Your protection has started</string>
+</resources>

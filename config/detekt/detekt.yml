@@ -1,0 +1,43 @@
+
+build:
+  maxIssues: 0
+  excludeCorrectable: false
+
+config:
+  validation: true
+  warningsAsErrors: false
+
+complexity:
+  LongMethod:
+    active: true
+    threshold: 80
+  LongParameterList:
+    active: true
+    functionThreshold: 10
+    constructorThreshold: 12
+  TooManyFunctions:
+    active: true
+    thresholdInClasses: 25
+    thresholdInFiles: 35
+
+style:
+  MagicNumber:
+    active: false
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+  WildcardImport:
+    active: true
+  ReturnCount:
+    active: true
+    max: 5
+
+potential-bugs:
+  UnsafeCallOnNullableType:
+    active: true
+
+coroutines:
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true

@@ -1,0 +1,14 @@
+Required before AI testing:
+
+1. face_landmarker.task
+   Obtain the compatible MediaPipe Face Landmarker model from the official MediaPipe documentation.
+
+2. glasses_classifier.tflite
+   A real trained four-class model matching:
+   index 0 = prescription glasses
+   index 1 = no glasses
+   index 2 = sunglasses
+   index 3 = occluded
+
+Do not rename an unrelated model or create an empty placeholder.
+Update the expected SHA-256 values before release.

@@ -1,0 +1,26 @@
+
+*.iml
+.gradle/
+local.properties
+.idea/
+.DS_Store
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing secrets.
+*.jks
+*.keystore
+keystore.properties
+
+# Generated/security-sensitive assets.
+app/src/main/assets/glasses_classifier.tflite
+app/src/main/assets/face_landmarker.task
+private-models/
+security_evidence/
+reports/
+
+# Environment secrets.
+.env
+*.properties.local
