@@ -194,9 +194,11 @@ class PinAttemptManager(
 
     private fun refreshLockout() {
         val now = elapsedRealtime()
+        val lockedUntil = state.lockedUntilElapsedMillis
+
         if (
-            state.lockedUntilElapsedMillis != null &&
-            now >= state.lockedUntilElapsedMillis
+            lockedUntil != null &&
+            now >= lockedUntil
         ) {
             state = PinAttemptState()
         }
