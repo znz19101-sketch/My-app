@@ -7,7 +7,7 @@ import com.guardexa.core.database.AppDatabase
 import com.guardexa.database.dao.GuardexaDao
 import com.guardexa.database.migration.GuardexaMigrations
 import com.guardexa.feature.apps.data.local.AppsDatabaseIntegration
-import com.guardexa.feature.apps.data.local.dao.AppsDao
+import com.guardexa.core.database.apps.dao.AppsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

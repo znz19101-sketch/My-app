@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.room.Room
 import com.guardexa.core.database.AppDatabase
 import com.guardexa.feature.apps.data.local.AppsLocalDataSource
-import com.guardexa.feature.apps.data.local.dao.AppsDao
+import com.guardexa.core.database.apps.dao.AppsDao
 import com.guardexa.feature.apps.data.repository.RoomAppsRepository
 import com.guardexa.feature.apps.device.AndroidInstalledAppsScanner
 import com.guardexa.feature.apps.device.InstalledAppsScanner

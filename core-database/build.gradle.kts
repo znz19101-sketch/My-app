@@ -29,7 +29,6 @@ android {
 
 dependencies {
     implementation(project(":core-model"))
-    implementation(project(":feature-apps"))
     implementation(project(":ai-liveness-evidence"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)

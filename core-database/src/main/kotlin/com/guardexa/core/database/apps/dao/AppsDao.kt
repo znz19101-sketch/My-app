@@ -1,8 +1,8 @@
 
-package com.guardexa.feature.apps.data.local.dao
+package com.guardexa.core.database.apps.dao
 
 import androidx.room.*
-import com.guardexa.feature.apps.data.local.entity.*
+import com.guardexa.core.database.apps.entity.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao

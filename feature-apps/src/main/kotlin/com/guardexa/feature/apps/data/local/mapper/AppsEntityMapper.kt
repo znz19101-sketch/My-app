@@ -1,7 +1,7 @@
 
 package com.guardexa.feature.apps.data.local.mapper
 
-import com.guardexa.feature.apps.data.local.entity.*
+import com.guardexa.core.database.apps.entity.*
 import com.guardexa.feature.apps.domain.model.*
 
 object AppsEntityMapper {

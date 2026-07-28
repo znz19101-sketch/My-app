@@ -1,7 +1,7 @@
 
 package com.guardexa.feature.apps.data.repository
 
-import com.guardexa.feature.apps.data.local.dao.AppsDao
+import com.guardexa.core.database.apps.dao.AppsDao
 import com.guardexa.feature.apps.data.local.mapper.AppsEntityMapper.toDomain
 import com.guardexa.feature.apps.data.local.mapper.AppsEntityMapper.toEntity
 import com.guardexa.feature.apps.domain.model.*

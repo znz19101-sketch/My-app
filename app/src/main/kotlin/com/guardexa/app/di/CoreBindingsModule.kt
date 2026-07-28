@@ -44,7 +44,7 @@ object CoreBindingsModule {
     @Provides
     @Singleton
     fun provideAppsRepository(
-        dao: com.guardexa.feature.apps.data.local.dao.AppsDao
+        dao: com.guardexa.core.database.apps.dao.AppsDao
     ): AppsRepository =
         RoomAppsRepository(dao)
 

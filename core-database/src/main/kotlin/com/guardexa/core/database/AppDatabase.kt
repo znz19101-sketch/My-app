@@ -7,9 +7,9 @@ import com.guardexa.core.database.dao.ProtectionProfileDao
 import com.guardexa.core.database.entity.ProtectionProfileEntity
 import com.guardexa.database.dao.GuardexaDao
 import com.guardexa.database.entity.*
-import com.guardexa.feature.apps.data.local.dao.AppsDao
-import com.guardexa.feature.apps.data.local.entity.AppPolicyEntity
-import com.guardexa.feature.apps.data.local.entity.InstalledAppEntity
+import com.guardexa.core.database.apps.dao.AppsDao
+import com.guardexa.core.database.apps.entity.AppPolicyEntity
+import com.guardexa.core.database.apps.entity.InstalledAppEntity
 
 @Database(
     entities = [

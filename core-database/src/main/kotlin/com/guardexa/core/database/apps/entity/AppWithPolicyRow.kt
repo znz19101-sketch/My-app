@@ -1,5 +1,5 @@
 
-package com.guardexa.feature.apps.data.local.entity
+package com.guardexa.core.database.apps.entity
 
 import androidx.room.Embedded
 import androidx.room.Relation
