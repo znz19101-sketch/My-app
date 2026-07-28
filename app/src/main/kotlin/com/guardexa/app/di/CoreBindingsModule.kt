@@ -14,7 +14,16 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
 import javax.inject.Singleton
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EpochTime
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class ElapsedRealtime
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -22,11 +31,13 @@ object CoreBindingsModule {
 
     @Provides
     @Singleton
+    @EpochTime
     fun provideEpochTime(): () -> Long =
         { System.currentTimeMillis() }
 
     @Provides
     @Singleton
+    @ElapsedRealtime
     fun provideElapsedRealtime(): () -> Long =
         { android.os.SystemClock.elapsedRealtime() }
 
@@ -34,7 +45,7 @@ object CoreBindingsModule {
     @Singleton
     fun provideApplicationStateRepository(
         dao: GuardexaDao,
-        epochTime: () -> Long
+        @EpochTime epochTime: () -> Long
     ): ApplicationStateRepository =
         DefaultApplicationStateRepository(
             dao = dao,
@@ -52,7 +63,7 @@ object CoreBindingsModule {
     @Singleton
     fun provideActivityLogRepository(
         dao: GuardexaDao,
-        epochTime: () -> Long
+        @EpochTime epochTime: () -> Long
     ): ActivityLogRepository =
         RoomActivityLogRepository(
             dao = dao,
