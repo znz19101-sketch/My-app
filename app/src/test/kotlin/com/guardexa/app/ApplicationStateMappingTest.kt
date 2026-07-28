@@ -2,8 +2,8 @@
 package com.guardexa.app
 
 import com.guardexa.app.runtime.GuardexaLaunchState
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import org.junit.Test
+import org.junit.Assert.assertEquals
 
 class ApplicationStateMappingTest {
 
