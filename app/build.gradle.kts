@@ -200,9 +200,6 @@ dependencies {
 
     implementation(libs.bundles.camera)
     implementation(libs.mediapipe.tasks.vision)
-    implementation(libs.tensorflow.lite)
-    implementation(libs.tensorflow.lite.support)
-    implementation(libs.tensorflow.lite.metadata)
 
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.security.crypto)

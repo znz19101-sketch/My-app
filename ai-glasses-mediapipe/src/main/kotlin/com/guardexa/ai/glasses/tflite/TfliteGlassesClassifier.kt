@@ -7,9 +7,11 @@ import com.guardexa.ai.core.model.GlassesAnalysisResult
 import com.guardexa.ai.core.model.GlassesClass
 import com.guardexa.ai.glasses.EyeRegion
 import org.tensorflow.lite.Interpreter
-import org.tensorflow.lite.support.common.FileUtil
+import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+import java.nio.MappedByteBuffer
+import java.nio.channels.FileChannel
 import kotlin.math.max
 
 data class GlassesClassifierConfig(
@@ -32,7 +34,7 @@ class TfliteGlassesClassifier(
     private val interpreter: Interpreter
 
     init {
-        val model = FileUtil.loadMappedFile(context, config.modelAssetPath)
+        val model = loadMappedModel(context, config.modelAssetPath)
         val options = Interpreter.Options()
             .setNumThreads(config.numThreads)
             .setUseXNNPACK(true)
@@ -81,6 +83,23 @@ class TfliteGlassesClassifier(
 
     override fun close() {
         interpreter.close()
+    }
+
+
+    private fun loadMappedModel(
+        context: Context,
+        assetPath: String
+    ): MappedByteBuffer {
+        val descriptor = context.assets.openFd(assetPath)
+
+        FileInputStream(descriptor.fileDescriptor).use { input ->
+            val channel = input.channel
+            return channel.map(
+                FileChannel.MapMode.READ_ONLY,
+                descriptor.startOffset,
+                descriptor.declaredLength
+            )
+        }
     }
 
     private fun bitmapToFloatBuffer(bitmap: Bitmap): ByteBuffer {
