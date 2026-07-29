@@ -27,14 +27,7 @@ object AppsFeatureModule {
         @ApplicationContext context: Context
     ): InstalledAppsScanner =
         AndroidInstalledAppsScanner(context)
-
-    @Provides
-    @Singleton
-    fun provideAppsDao(
-        database: AppDatabase
-    ): AppsDao = database.appsDao()
-
-    @Provides
+@Provides
     @Singleton
     fun provideAppsLocalDataSource(
         database: AppDatabase,
@@ -46,11 +39,4 @@ object AppsFeatureModule {
             dao = dao,
             scanner = scanner
         )
-
-    @Provides
-    @Singleton
-    fun provideAppsRepository(
-        dao: AppsDao
-    ): AppsRepository =
-        RoomAppsRepository(dao)
 }

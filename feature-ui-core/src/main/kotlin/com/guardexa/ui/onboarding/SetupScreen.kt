@@ -122,6 +122,7 @@ fun SetupScreen(
                 SetupStep.ACTIVATION_COUNTDOWN -> ActivationCountdownStep(
                     seconds = state.activationSecondsRemaining,
                     loading = state.loading,
+                    onTick = { onAction(SetupAction.TickActivation) },
                     onCancel = { onAction(SetupAction.CancelActivation) }
                 )
                 SetupStep.COMPLETED -> ProtectionStartedStep()
@@ -384,8 +385,16 @@ private fun ReviewStep(state: SetupUiState) {
 private fun ActivationCountdownStep(
     seconds: Int,
     loading: Boolean,
+    onTick: () -> Unit,
     onCancel: () -> Unit
 ) {
+    LaunchedEffect(seconds, loading) {
+        if (!loading && seconds > 0) {
+            kotlinx.coroutines.delay(1_000)
+            onTick()
+        }
+    }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -393,6 +402,7 @@ private fun ActivationCountdownStep(
     ) {
         Text("Protection starts in", style = MaterialTheme.typography.titleLarge)
         Text("$seconds", style = MaterialTheme.typography.displayLarge)
+
         if (loading) {
             CircularProgressIndicator()
         } else {

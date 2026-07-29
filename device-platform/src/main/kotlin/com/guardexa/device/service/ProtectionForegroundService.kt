@@ -7,6 +7,8 @@ import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import com.guardexa.device.usage.ForegroundAppMonitor
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
@@ -17,11 +19,15 @@ interface ProtectionRuntime {
     suspend fun onServiceStopped()
 }
 
+@AndroidEntryPoint
 class ProtectionForegroundService : Service() {
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
+    @Inject
     lateinit var appMonitor: ForegroundAppMonitor
+
+    @Inject
     lateinit var protectionRuntime: ProtectionRuntime
 
     override fun onCreate() {

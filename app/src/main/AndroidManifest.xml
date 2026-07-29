@@ -30,6 +30,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Guardexa">
 
+
+        <activity
+            android:name="com.guardexa.app.ProtectionGateActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Guardexa" />
+
         <activity
             android:name="com.guardexa.app.MainActivity"
             android:exported="true">

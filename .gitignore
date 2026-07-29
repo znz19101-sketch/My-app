@@ -24,3 +24,5 @@ reports/
 # Environment secrets.
 .env
 *.properties.local
+
+.kotlin/

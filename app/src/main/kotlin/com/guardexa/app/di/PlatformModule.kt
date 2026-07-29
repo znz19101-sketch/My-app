@@ -2,8 +2,10 @@
 package com.guardexa.app.di
 
 import android.content.Context
+import com.guardexa.app.runtime.DefaultProtectionRuntime
 import com.guardexa.device.compatibility.ManufacturerCompatibility
 import com.guardexa.device.permissions.PermissionOrchestrator
+import com.guardexa.device.service.ProtectionRuntime
 import com.guardexa.device.usage.ForegroundAppMonitor
 import com.guardexa.notifications.AndroidNotificationPublisher
 import dagger.Module
@@ -43,4 +45,10 @@ object PlatformModule {
     fun provideManufacturerCompatibility():
         ManufacturerCompatibility =
         ManufacturerCompatibility()
+    @Provides
+    @Singleton
+    fun provideProtectionRuntime(
+        runtime: DefaultProtectionRuntime
+    ): ProtectionRuntime = runtime
+
 }

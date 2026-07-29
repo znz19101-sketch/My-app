@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 data class MainUiState(
     val loading: Boolean = true,
     val startRoute: String = Routes.SETUP,
+    val protectionActive: Boolean = false,
     val errorMessage: String? = null
 )
 
@@ -27,6 +28,7 @@ class MainViewModel @Inject constructor(
             .map { runtime ->
                 MainUiState(
                     loading = false,
+                    protectionActive = runtime.protectionEnabled,
                     startRoute = when (runtime.launchState) {
                         GuardexaLaunchState.FIRST_RUN,
                         GuardexaLaunchState.SETUP_IN_PROGRESS ->
